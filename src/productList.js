@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import Product from './product';
+import { Product } from './product';
 
 export default class ProductList extends Component {
 
@@ -9,11 +9,13 @@ export default class ProductList extends Component {
 
     render() {
         return (
-          <ol>
+          <ul>
               {this.props.data.data.map(product => {
-                  return <li key={product.id}><Product data={product} /></li>;
+                  return <li key={product.id}>
+                      <Product {...product} />
+                  </li>;
               })}
-          </ol>
+          </ul>
         );
     }
 }
