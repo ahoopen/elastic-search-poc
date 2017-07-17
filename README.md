@@ -1,7 +1,7 @@
 ### Installation
 
-yarn install
+`yarn install` or `npm install`
 
 ### Usage
 
-yarn start to run the development server
+`yarn start` or `npm start` to run the development server
