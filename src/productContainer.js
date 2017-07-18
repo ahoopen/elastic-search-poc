@@ -4,7 +4,6 @@ import ProductList from './productList'
 
 export default class productContainer extends Component {
 
-
     render() {
         return (
             <FetchProducts searchTerm={`${this.props.searchTerm}`}>

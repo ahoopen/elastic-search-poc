@@ -3,8 +3,6 @@ import axios from 'axios'
 
 export default class fetchProducts extends Component {
 
-    endpoint = `http://localhost:3000/mock.json`;
-
     state = {
         loading: false,
         error: null,
@@ -13,14 +11,14 @@ export default class fetchProducts extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.searchTerm) {
-            this.fetchElastic();
+            this.fetchElastic(nextProps);
         }
     }
 
-    fetchElastic() {
+    fetchElastic({searchTerm}) {
         this.setState({products: null, loading: true, error: null});
 
-        axios.get(this.endpoint)
+        axios.get(`http://localhost:3000/mock.json?search=${searchTerm}`)
             .then(
                 ({data: products}) => {
                     this.setState({products, error: null, loading: false});
